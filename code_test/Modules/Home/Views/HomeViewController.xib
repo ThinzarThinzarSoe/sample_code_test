@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="code_test" customModuleProvider="target">
+            <connections>
+                <outlet property="heightConstraintForLastUpdateDteTime" destination="w8v-oj-h5U" id="R8e-5V-CKd"/>
+                <outlet property="lblLastUpdateDteTime" destination="52i-9n-XlH" id="WvH-hN-Kbj"/>
+                <outlet property="tblExchangeRate" destination="qe2-pw-99d" id="y5q-QZ-dJr"/>
+                <outlet property="view" destination="KE8-wV-5Z1" id="k3n-xv-dBO"/>
+                <outlet property="widthConstraintForLastUpdateDteTime" destination="4DJ-uu-T4y" id="ZqY-w8-oUq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="KE8-wV-5Z1">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated: 04-Sep-2020 01:00 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52i-9n-XlH">
+                    <rect key="frame" x="61.5" y="54" width="291.5" height="50"/>
+                    <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="291.5" id="4DJ-uu-T4y"/>
+                        <constraint firstAttribute="height" constant="50" id="w8v-oj-h5U"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qe2-pw-99d">
+                    <rect key="frame" x="20" y="134" width="374" height="728"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="LxB-wu-51b"/>
+            <color key="backgroundColor" red="0.17254901960784313" green="0.1764705882352941" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="LxB-wu-51b" firstAttribute="trailing" secondItem="qe2-pw-99d" secondAttribute="trailing" constant="20" id="Aak-wr-5sX"/>
+                <constraint firstItem="52i-9n-XlH" firstAttribute="top" secondItem="LxB-wu-51b" secondAttribute="top" constant="10" id="Bn6-BI-wVf"/>
+                <constraint firstItem="qe2-pw-99d" firstAttribute="leading" secondItem="LxB-wu-51b" secondAttribute="leading" constant="20" id="SK9-hF-dvd"/>
+                <constraint firstItem="52i-9n-XlH" firstAttribute="centerX" secondItem="KE8-wV-5Z1" secondAttribute="centerX" id="UHT-qd-x23"/>
+                <constraint firstItem="LxB-wu-51b" firstAttribute="bottom" secondItem="qe2-pw-99d" secondAttribute="bottom" id="fEG-CM-0mb"/>
+                <constraint firstItem="qe2-pw-99d" firstAttribute="top" secondItem="52i-9n-XlH" secondAttribute="bottom" constant="30" id="hW2-cT-6mY"/>
+            </constraints>
+            <point key="canvasLocation" x="-255.07246376811597" y="-230.35714285714283"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

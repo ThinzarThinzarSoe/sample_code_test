@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="134" id="Lvu-E9-Hu2" customClass="RateItemTableViewCell" customModule="code_test" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="477" height="134"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lvu-E9-Hu2" id="D0y-4y-GpI">
+                <rect key="frame" x="0.0" y="0.0" width="477" height="134"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6I-AS-TmF" customClass="RoundedCornerUIButton" customModule="code_test" customModuleProvider="target">
+                        <rect key="frame" x="20" y="10" width="437" height="114"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlo-yg-G8M" customClass="UIPaddedLabel" customModule="code_test" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="46.5" width="131" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLO-hL-3bt">
+                                <rect key="frame" x="141" y="46.5" width="276" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OLO-hL-3bt" secondAttribute="trailing" constant="20" id="705-u3-MxA"/>
+                            <constraint firstItem="rlo-yg-G8M" firstAttribute="leading" secondItem="V6I-AS-TmF" secondAttribute="leading" id="QSm-kw-ApC"/>
+                            <constraint firstAttribute="height" constant="114" id="RfE-LJ-qRA"/>
+                            <constraint firstItem="rlo-yg-G8M" firstAttribute="centerY" secondItem="V6I-AS-TmF" secondAttribute="centerY" id="d1L-Xd-tqr"/>
+                            <constraint firstItem="OLO-hL-3bt" firstAttribute="leading" secondItem="rlo-yg-G8M" secondAttribute="trailing" constant="10" id="d1P-5j-i7E"/>
+                            <constraint firstItem="OLO-hL-3bt" firstAttribute="centerY" secondItem="V6I-AS-TmF" secondAttribute="centerY" id="pJK-2v-SxG"/>
+                            <constraint firstItem="rlo-yg-G8M" firstAttribute="width" secondItem="V6I-AS-TmF" secondAttribute="width" multiplier="0.3" id="zVv-0O-Pk8"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="V6I-AS-TmF" firstAttribute="top" secondItem="D0y-4y-GpI" secondAttribute="top" constant="10" id="D7Y-Ok-Krn"/>
+                    <constraint firstAttribute="bottom" secondItem="V6I-AS-TmF" secondAttribute="bottom" constant="10" id="Gxf-zM-8RT"/>
+                    <constraint firstAttribute="trailing" secondItem="V6I-AS-TmF" secondAttribute="trailing" constant="20" id="vCb-BT-pIG"/>
+                    <constraint firstItem="V6I-AS-TmF" firstAttribute="leading" secondItem="D0y-4y-GpI" secondAttribute="leading" constant="20" id="vQ1-E2-mh9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="heightConstraint" destination="RfE-LJ-qRA" id="1Lv-xD-w2z"/>
+                <outlet property="lblToCurrency" destination="rlo-yg-G8M" id="gPa-Fg-6Ou"/>
+                <outlet property="lblToCurrencyRate" destination="OLO-hL-3bt" id="HjI-0x-hsH"/>
+            </connections>
+            <point key="canvasLocation" x="92.028985507246389" y="67.633928571428569"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="V6I-AS-TmF">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
+</document>

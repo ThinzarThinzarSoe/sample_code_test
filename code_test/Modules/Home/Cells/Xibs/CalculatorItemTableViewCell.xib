@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="128" id="yg9-Rr-zVM" customClass="CalculatorItemTableViewCell" customModule="code_test" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yg9-Rr-zVM" id="k56-eD-IDv">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqc-L2-SOO" customClass="RoundedCornerUIButton" customModule="code_test" customModuleProvider="target">
+                        <rect key="frame" x="20" y="10" width="374" height="108"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dm9-6j-gLt">
+                                <rect key="frame" x="0.0" y="0.0" width="112" height="108"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="USD">
+                                    <color key="titleColor" red="0.17254901959999999" green="0.1764705882" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dropDown" translatesAutoresizingMaskIntoConstraints="NO" id="53X-s5-y2t">
+                                <rect key="frame" x="79.5" y="37.5" width="32.5" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="53X-s5-y2t" secondAttribute="height" multiplier="1:1" id="dPV-JE-14P"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dEV-Ju-bhw">
+                                <rect key="frame" x="122" y="45" width="242" height="18.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="108" id="5lb-RN-wAw"/>
+                            <constraint firstItem="53X-s5-y2t" firstAttribute="centerY" secondItem="Dm9-6j-gLt" secondAttribute="centerY" id="BT3-jB-s5O"/>
+                            <constraint firstItem="53X-s5-y2t" firstAttribute="trailing" secondItem="Dm9-6j-gLt" secondAttribute="trailing" id="Bdn-Mk-ITW"/>
+                            <constraint firstItem="Dm9-6j-gLt" firstAttribute="leading" secondItem="mqc-L2-SOO" secondAttribute="leading" id="FH5-rT-Y2a"/>
+                            <constraint firstItem="Dm9-6j-gLt" firstAttribute="top" secondItem="mqc-L2-SOO" secondAttribute="top" id="SMH-AC-5Z3"/>
+                            <constraint firstAttribute="bottom" secondItem="Dm9-6j-gLt" secondAttribute="bottom" id="TBv-Ho-eQ6"/>
+                            <constraint firstItem="Dm9-6j-gLt" firstAttribute="width" secondItem="mqc-L2-SOO" secondAttribute="width" multiplier="0.3" id="fVQ-kB-SXp"/>
+                            <constraint firstAttribute="trailing" secondItem="dEV-Ju-bhw" secondAttribute="trailing" constant="10" id="s1U-Bx-ePG"/>
+                            <constraint firstItem="dEV-Ju-bhw" firstAttribute="leading" secondItem="Dm9-6j-gLt" secondAttribute="trailing" constant="10" id="t6C-eY-P7s"/>
+                            <constraint firstItem="53X-s5-y2t" firstAttribute="height" secondItem="Dm9-6j-gLt" secondAttribute="height" multiplier="0.301676" id="w2H-Jf-iig"/>
+                            <constraint firstItem="dEV-Ju-bhw" firstAttribute="centerY" secondItem="mqc-L2-SOO" secondAttribute="centerY" id="wJD-9v-ej9"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="mqc-L2-SOO" secondAttribute="trailing" constant="20" id="2UW-1L-hLv"/>
+                    <constraint firstItem="mqc-L2-SOO" firstAttribute="leading" secondItem="k56-eD-IDv" secondAttribute="leading" constant="20" id="Lyg-PQ-UJo"/>
+                    <constraint firstAttribute="bottom" secondItem="mqc-L2-SOO" secondAttribute="bottom" constant="10" id="Ss9-Hq-mVJ"/>
+                    <constraint firstItem="mqc-L2-SOO" firstAttribute="top" secondItem="k56-eD-IDv" secondAttribute="top" constant="10" id="qRR-RU-rac"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="btnChooseCurrency" destination="Dm9-6j-gLt" id="MQd-LN-CtP"/>
+                <outlet property="heightConstraint" destination="5lb-RN-wAw" id="E8k-dI-v4A"/>
+                <outlet property="tfFrom" destination="dEV-Ju-bhw" id="WZJ-JE-WS7"/>
+            </connections>
+            <point key="canvasLocation" x="100.00000000000001" y="65.625"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="mqc-L2-SOO">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="ic_dropDown" width="14" height="9"/>
+    </resources>
+</document>
