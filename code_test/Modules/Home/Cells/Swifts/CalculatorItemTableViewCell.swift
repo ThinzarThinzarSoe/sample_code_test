@@ -29,6 +29,8 @@ class CalculatorItemTableViewCell : BaseTableViewCell {
         heightConstraint.constant = UIScreen.main.bounds.height * 0.07
         btnChooseCurrency.titleLabel?.font = UIFont.Roboto.Bold.font(size: 18)
         tfFrom.font = UIFont.Roboto.Bold.font(size: 18)
+        tfFrom.keyboardType = .numberPad
+        tfFrom.delegate = self
     }
     
     override func setupLanguage() {
@@ -55,5 +57,30 @@ class CalculatorItemTableViewCell : BaseTableViewCell {
         self.viewModel = viewModel
         btnChooseCurrency.setTitle(viewModel.selectedCurrrencyTypePublishSubject.value.getCurrencyName(), for: .normal)
     }
+}
+
+extension CalculatorItemTableViewCell : UITextFieldDelegate{
+    func textField(_ shouldChangeCharactersIntextField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+            let inverseSet = NSCharacterSet(charactersIn:"0123456789.").inverted
+
+            let components = string.components(separatedBy: inverseSet)
+
+            let filtered = components.joined(separator: "")
+
+            return string == filtered
+
+    }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+       // Try to find next responder
+       if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+          nextField.becomeFirstResponder()
+       } else {
+          // Not found, so remove keyboard.
+          textField.resignFirstResponder()
+       }
+       // Do not add a line break
+       return false
+    }
 }

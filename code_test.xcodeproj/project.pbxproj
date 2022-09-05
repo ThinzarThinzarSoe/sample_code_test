@@ -1226,7 +1226,7 @@
 				DEVELOPMENT_TEAM = 86M6XC9HA4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = code_test/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = code_test;
+				INFOPLIST_KEY_CFBundleDisplayName = CurrencyExchange;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1258,7 +1258,7 @@
 				DEVELOPMENT_TEAM = 86M6XC9HA4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = code_test/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = code_test;
+				INFOPLIST_KEY_CFBundleDisplayName = CurrencyExchange;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

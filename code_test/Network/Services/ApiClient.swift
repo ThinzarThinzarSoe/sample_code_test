@@ -24,10 +24,10 @@ class ApiClient : ApiClientProtocol {
     static let shared = ApiClient()
     private let APIManager: Session = {
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 5
+        configuration.timeoutIntervalForRequest = 20
         configuration.urlCache = nil
         configuration.requestCachePolicy = .reloadIgnoringCacheData
-        let delegate = Session.default.delegate
+        var delegate = Session.default.delegate
         let manager = Session.init(configuration: configuration,
                                    delegate: delegate)
         return manager
@@ -39,6 +39,9 @@ class ApiClient : ApiClientProtocol {
                                headers : HTTPHeaders = [:]) -> AnyPublisher<Data,Error> {
         var headers = headers
         headers["Content-Type"] = "application/json"
+        var dataTask: URLSessionDataTask?
+        let onSubscription: (Subscription) -> Void = { _ in dataTask?.resume() }
+        let onCancel: () -> Void = { dataTask?.cancel() }
         let encoding : ParameterEncoding = (method == .get ? URLEncoding.default : JSONEncoding.default)
         return Future<Data,Error>{ [unowned self] promise in
             APIManager.request(url, method: method, parameters: parameters,encoding: encoding, headers: headers).validate().responseJSON { (response) in
@@ -49,7 +52,11 @@ class ApiClient : ApiClientProtocol {
                     promise(.failure(ErrorType.NoInterntError))
                 }
             }
-        }.eraseToAnyPublisher()
+        }
+        .handleEvents(receiveSubscription: onSubscription, receiveCancel: onCancel)
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
+        
     }
 }
 

@@ -21,11 +21,10 @@ protocol HomeModelProtocol {
 }
 
 class HomeModel : HomeModelProtocol {
-    private let apiclient : ApiClientProtocol
     let db = DBManager.sharedInstance
     
-    init(apiclient: ApiClientProtocol = ApiClient()) {
-        self.apiclient = apiclient
+    deinit {
+        
     }
     
     func getExchangeRate() -> AnyPublisher<ExchangeRateResponse?,Error> {

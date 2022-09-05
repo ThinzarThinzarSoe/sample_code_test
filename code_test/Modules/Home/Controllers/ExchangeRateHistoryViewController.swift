@@ -94,11 +94,7 @@ class ExchangeRateHistoryViewController : BaseViewController {
     override func setupLanguage() {
         super.setupLanguage()
     }
-    
-    override func didTapBackBtn() {
-        AppScreens.shared.goBackToHomeVC()
-    }
-    
+
     func setupTableView() {
         tblHistory.delegate = self
         tblHistory.dataSource = self

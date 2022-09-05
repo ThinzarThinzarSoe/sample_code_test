@@ -236,7 +236,7 @@ class Dates {
 
         while startDate <= endDate {
             dates.append(startDate)
-            startDate = calendar.date(byAdding: .minute, value: 20, to: startDate)!
+            startDate = calendar.date(byAdding: .minute, value: 10, to: startDate)!
         }
         return dates
     }

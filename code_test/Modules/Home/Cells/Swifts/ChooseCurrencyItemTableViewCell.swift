@@ -20,6 +20,7 @@ class ChooseCurrencyItemTableViewCell: BaseTableViewCell {
     override func setupUI() {
         super.setupUI()
         heightConstraint.constant = UIScreen.main.bounds.height * 0.05
+        btnChoose.titleLabel?.font = UIFont.Roboto.Bold.font(size: 14)
     }
     
     override func setupLanguage() {

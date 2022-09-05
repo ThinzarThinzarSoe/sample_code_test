@@ -11,7 +11,6 @@ target 'code_test' do
   pod 'SnapKit'
   pod 'Alamofire'
   pod 'CombineCocoa'
-  pod 'FSPagerView'
   pod 'NVActivityIndicatorView' , '~> 4.8.0'
   pod 'ReachabilitySwift'
   pod 'RealmSwift'

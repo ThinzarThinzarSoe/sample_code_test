@@ -12,8 +12,8 @@ class CalculatorViewController : BaseTableViewController {
     
     var currencyTypeList : [CurrencyType] = [.usd , .gbp , .eur]
     var selectedCurrencyType : CurrencyType = .usd
-    var viewModel : CalculatorViewModel = CalculatorViewModel()
-    var exchageRateList : [SaveExchangeRateVO] = []
+    var calculatorViewModel : CalculatorViewModel = CalculatorViewModel()
+    var saveExchageRateList : [SaveExchangeRateVO] = []
     var toVale : Double = 0.0
     
     override func viewDidLoad() {
@@ -23,16 +23,12 @@ class CalculatorViewController : BaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addBackButton()
-        exchageRateList.removeAll()
-        viewModel.retrieveAllExchangeRate()
+        saveExchageRateList.removeAll()
+        calculatorViewModel.retrieveAllExchangeRate()
     }
     
     deinit {
         
-    }
-    
-    override func didTapBackBtn() {
-        AppScreens.shared.goBackToHomeVC()
     }
     
     override func setupUI() {
@@ -47,7 +43,7 @@ class CalculatorViewController : BaseTableViewController {
     
     override func bindViewModel() {
         super.bindViewModel()
-        viewModel.bindViewModel(in : self)
+        calculatorViewModel.bindViewModel(in : self)
     }
     
     override func setupTableView() {
@@ -65,8 +61,8 @@ class CalculatorViewController : BaseTableViewController {
     }
     
     func getCurrencyRate() -> Double{
-        if let idx = self.exchageRateList.firstIndex(where: {$0.code == self.selectedCurrencyType.getCurrencyName()}) {
-            return self.exchageRateList[idx].rate_float ?? 0.0
+        if let idx = self.saveExchageRateList.firstIndex(where: {$0.code == self.selectedCurrencyType.getCurrencyName()}) {
+            return self.saveExchageRateList[idx].rate_float ?? 0.0
         }
         return 0.0
     }
@@ -74,26 +70,26 @@ class CalculatorViewController : BaseTableViewController {
     override func bindData() {
         super.bindData()
         
-        viewModel.exchangeRatePublishSubject.sink {
+        calculatorViewModel.exchangeRatePublishSubject.sink {
             if !$0.isEmpty{
-                self.exchageRateList = $0
+                self.saveExchageRateList = $0
             }
             self.tableView.isHidden = false
             self.tableView.reloadData()
         }.store(in: &bindings)
         
-        viewModel.selectedCurrrencyTypePublishSubject.sink{ [unowned self] in
+        calculatorViewModel.selectedCurrrencyTypePublishSubject.sink{ [unowned self] in
             self.selectedCurrencyType = $0
-            viewModel.tfFromPublishSubject.send("0.0")
+            calculatorViewModel.tfFromPublishSubject.send("0.0")
             self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
         }.store(in: &bindings)
         
-        viewModel.tfFromPublishSubject.sink{ [unowned self] in
+        calculatorViewModel.tfFromPublishSubject.sink{ [unowned self] in
             let fromValue = Double($0)
-            viewModel.currencyRatePublishSubject.send(getCurrencyRate() * (fromValue ?? 0.0))
+            calculatorViewModel.currencyRatePublishSubject.send(getCurrencyRate() * (fromValue ?? 0.0))
         }.store(in: &bindings)
         
-        viewModel.currencyRatePublishSubject.sink{ _ in
+        calculatorViewModel.currencyRatePublishSubject.sink{ _ in
             self.tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
         }.store(in: &bindings)
     }
@@ -104,7 +100,7 @@ class CalculatorViewController : BaseTableViewController {
             return "\($0.getCurrencyName()) - \($0.getDescription())"
         }
         CustomPicker.selectOption(title: "Choose Currency", cancelText: "Cancel", dataArray: nameArray, selectedIndex: idx) {[weak self] (selctedText, atIndex) in
-            self?.viewModel.selectedCurrrencyTypePublishSubject.send(self?.currencyTypeList[atIndex] ?? .usd)
+            self?.calculatorViewModel.selectedCurrrencyTypePublishSubject.send(self?.currencyTypeList[atIndex] ?? .usd)
         }
     }
  }
@@ -127,13 +123,13 @@ extension CalculatorViewController {
     func getCalculatorCell(indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeReuseCell(type: CalculatorItemTableViewCell.self, indexPath: indexPath)
         cell.delegate = self
-        cell.setupData(viewModel: &viewModel)
+        cell.setupData(viewModel: &calculatorViewModel)
         return cell
     }
     
     func getRateCell(indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeReuseCell(type: RateItemTableViewCell.self, indexPath: indexPath)
-        cell.setupData(viewModel: &viewModel)
+        cell.setupData(viewModel: &calculatorViewModel)
         return cell
     }
 }

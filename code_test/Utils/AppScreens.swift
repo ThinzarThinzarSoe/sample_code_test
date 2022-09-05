@@ -18,12 +18,4 @@ extension AppScreens {
         let vc = CalculatorViewController.init(nibName: String(describing: BaseTableViewController.self), bundle: nil)
         currentVC?.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    func goBackToHomeVC() {
-        if let destinationViewController = currentVC?.navigationController?.viewControllers.filter(
-            {$0 is HomeViewController}).first as? HomeViewController {
-            destinationViewController.isBack = true
-            currentVC?.navigationController?.popToViewController(destinationViewController, animated: true)
-        }
-    }
 }

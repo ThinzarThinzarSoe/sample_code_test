@@ -23,19 +23,13 @@ class HomeViewModel: BaseViewModel {
 }
 
 extension HomeViewModel {
-    
-    func getRate() {
-        
-    }
-    
+
     func getExchangeRate() {
         model.getExchangeRate().sink(receiveCompletion: { [unowned self] in
             guard case .failure (let error ) = $0 else {return}
             errorPublishSubject.send(error)
         }) { [unowned self] (response) in
             if let responseData = response {
-                print("......")
-                print(responseData)
                 if let time = responseData.time {
                     lastUpdateTimePublishSubject.send(time.updatedISO ?? "")
                     saveServerTimeId = getIdForSaveServerTime()

@@ -12,19 +12,19 @@ class HomeViewController : BaseViewController {
     var btnCalculator = RoundedCornerUIButton(type: .custom)
     var viewModel : HomeViewModel = HomeViewModel()
     var exchageRateList : [ExchangeRateVO] = []
-    var isBack : Bool = false
     
     var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { [unowned self] timer in
-            viewModel.getExchangeRate()
-        })
+        viewModel.getExchangeRate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true, block: { [unowned self] timer in
+            viewModel.getExchangeRate()
+        })
     }
 
     override func viewDidDisappear(_ animated: Bool) {

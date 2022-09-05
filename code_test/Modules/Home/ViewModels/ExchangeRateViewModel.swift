@@ -46,7 +46,6 @@ extension ExchangeRateViewModel {
     }
     
     func retrieveSaveServerTimeByDate(date : String) {
-        print(date)
         model.retrieveSaveServerTimeByDate(date: date).subscribe { [unowned self] list in
             saveDataList += list.compactMap {$0.convertToVO()}
             saveServerTimeListByDatePublishSubject.send(saveDataList)
